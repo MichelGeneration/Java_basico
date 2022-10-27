@@ -11,9 +11,7 @@ public class CalculoDeAreas {
 				// menu con la seleccion de figura
 				// sabes la fiugura geometrica
 				menu();
-
 			}
-
 			public static void menu() {
 			Scanner sc = new Scanner(System.in);
 				
@@ -31,23 +29,19 @@ public class CalculoDeAreas {
 			do {
 				System.out.println("*Selecciona una opcion*");
 				opciones = sc.nextInt();
-
 				// si la opcion es 0, salir del do While
 				if (opciones == 0) {
 				System.out.println("Usted ha salido del programa");
 				break;// termino el do while
 				}
-
 				if (opciones < 0 || opciones > 3) {
 					contadorErrores--;
 					System.out.println("Te quedan " + contadorErrores + " intentos");
 					}
-
 				if (contadorErrores == 0) {
 					System.out.println("Agoto la cantidad de intentos");
 					break;
 					}
-
 				} while (opciones < 0 || opciones > 3);
 				
 				
@@ -56,35 +50,40 @@ public class CalculoDeAreas {
 			if (opciones == 0 || contadorErrores == 0) {
 					System.out.println("Adios!!");
 			} else {
-
 			float area = 0;
 			float perimetro =0;
-
 			switch (opciones) {// nos ayuda para definir casos
 				case 1:// TRIANGUO
+					float altura=0;
+					float altura2 = 0;
+					float basetriangulo = 0;
+					
+					float baseAl2=0;
+					float areaTriangulo=0;
 					System.out.println("*Ingresar valor de lado1 de triangulo en centimetros*");
 					float lado1 = sc.nextFloat();
 					System.out.println("*Ingresar valor de lado2 de triangulo en centimetros*");
 					float lado2 = sc.nextFloat();
+					
+					basetriangulo =lado1;
+					
 					float lado1Alcuadrado=lado1*lado1;
 					float lado2Alcuadrado=lado2*lado2;
-					float altura=0;
-					float altura2 = 0;
-					float base = lado1;
-					float base2=0;
-		          
+					
+					
 					if(lado1Alcuadrado >lado2Alcuadrado){
-					base2=lado1Alcuadrado-lado2Alcuadrado;
-		          
+						
+						altura2=lado1Alcuadrado-lado2Alcuadrado;
 					}else if(lado2Alcuadrado>lado1Alcuadrado) {
-						base2=lado2Alcuadrado-lado1Alcuadrado;
+						
+						altura2=lado2Alcuadrado-lado1Alcuadrado;
 					}
 						
 					altura = (float)Math.sqrt(altura2);
-		        
-					perimetro =base + lado1 +lado2;
-					area =(base *altura)/2;
-					System.out.println("El area de el triangulo es: "+area+"cm2");
+					perimetro =basetriangulo + lado1 +lado2;
+					areaTriangulo =(basetriangulo  *altura)/2;
+					System.out.println("El area de el triangulo es: "+areaTriangulo+" cm2");
+					System.out.println("El perimetro de el triangulo es: "+perimetro+" cm ");
 						
 						break;
 				case 2:// RECTANGULO
@@ -108,11 +107,10 @@ public class CalculoDeAreas {
 					System.out.println("El area de la circunferencia es: "+area+"cm2");
 					System.out.println("El perimetro de la circunferencia es: "+perimetro+"cm");
 						break;
-
 				default:
 					System.out.println("Opción no valida");
 						break;
 					}
 				}
+			}
 		}
-}
